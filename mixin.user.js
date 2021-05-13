@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         位置测试
-// @namespace    http://sdo.xyz/
+// @namespace    sdo.xyz
 // @version      0.1
 // @description  try to take over the world!
 // @author       You
