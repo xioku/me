@@ -7,8 +7,12 @@
 // @match        *://*/*
 // @match        *://*/*?*
 // @require      https://unpkg.com/ajax-hook@2.0.3/dist/ajaxhook.min.js
-// @icon         data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==
-// @grant        none
+// @run-at       document-end
+// @grant        unsafeWindow
+// @grant        GM_xmlhttpRequest
+// @grant        GM_getValue
+// @grant        GM_setClipboard
+// @grant        GM_setValue
 // ==/UserScript==
 
 (function() {
