@@ -1,5 +1,5 @@
 // ==UserScript==
-// @name         测试
+// @name         位置测试
 // @namespace    http://sdo.xyz/
 // @version      0.1
 // @description  try to take over the world!
@@ -25,9 +25,9 @@
             var url = config.url;
             if (url.indexOf('location.action') >= 0) {
                 var p = config.body;
-                p = replacePV(p,'longitude','113.68627421602186');
-                p = replacePV(p,'latitude','34.78460976085749');
-                p = replacePV(p,'accuracy',((Math.random()*50+50)+'').substring(0,5));
+                p = replacePV(p,'longitude','113.686274216021'+parseInt(Math.random()*100));
+                p = replacePV(p,'latitude','34.784609760857'+parseInt(Math.random()*100));
+                p = replacePV(p,'accuracy',((Math.random()*50+50)+'').substring(0,4));
                 config.body = p;
             }
             handler.next(config);
