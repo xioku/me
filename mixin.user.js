@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         位置测试
 // @namespace    sdo.xyz
-// @version      0.1
+// @version      0.0.1
 // @description  try to take over the world!
 // @author       You
 // @match        *://ctjsoft.mrcrm.com/*
