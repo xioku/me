@@ -25,8 +25,8 @@
             var url = config.url;
             if (url.indexOf('location.action') >= 0) {
                 var p = config.body;
-                p = replacePV(p,'longitude','113.686274216021'+parseInt(Math.random()*100));
-                p = replacePV(p,'latitude','34.784609760857'+parseInt(Math.random()*100));
+                p = replacePV(p,'longitude','113.68627421602'+parseInt(Math.random()*1000));
+                p = replacePV(p,'latitude','34.78460976085'+parseInt(Math.random()*1000));
                 p = replacePV(p,'accuracy',((Math.random()*50+50)+'').substring(0,4));
                 config.body = p;
             }
@@ -37,7 +37,7 @@
             var url = response.config.url;
             if (url.indexOf('location.action') >= 0) {
                 var loc = JSON.parse(response.response);
-                loc.name = '河南省郑州市金水区经三路 在财富广场附近';
+                loc.name = '郑州市金水区经三路 在财富广场附近';
                 response.response = JSON.stringify(loc);
             }
             handler.next(response);
