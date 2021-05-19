@@ -25,8 +25,8 @@
             var url = config.url;
             if (url.indexOf('location.action') >= 0) {
                 var p = config.body;
-                p = replacePV(p,'longitude','113.68627421602'+parseInt(Math.random()*1000));
-                p = replacePV(p,'latitude','34.78460976085'+parseInt(Math.random()*1000));
+                p = replacePV(p,'longitude','113.68627321602'+parseInt(Math.random()*1000));
+                p = replacePV(p,'latitude','34.78440976085'+parseInt(Math.random()*1000));
                 p = replacePV(p,'accuracy',((Math.random()*50+50)+'').substring(0,4));
                 config.body = p;
             }
