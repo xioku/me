@@ -1,10 +1,10 @@
 /*页面置灰*/
 body,html{
--webkit-filter: grayscale(100%);
--moz-filter: grayscale(100%);
--ms-filter: grayscale(100%);
--o-filter: grayscale(100%);
-filter: grayscale(100%);
+-webkit-filter: grayscale(0.95);
+-moz-filter: grayscale(0.95);
+-ms-filter: grayscale(0.95);
+-o-filter: grayscale(0.95);
+filter: grayscale(0.95);
 filter: gray;
 filter: progid:DXImageTransform.Microsoft.BasicImage(grayscale=1);
 }
