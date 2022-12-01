@@ -1,5 +1,4 @@
 /*页面置灰*/
-/*
 body,html{
 -webkit-filter: grayscale(100%);
 -moz-filter: grayscale(100%);
@@ -9,4 +8,3 @@ filter: grayscale(100%);
 filter: gray;
 filter: progid:DXImageTransform.Microsoft.BasicImage(grayscale=1);
 }
-*/
