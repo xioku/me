@@ -9,6 +9,7 @@
 // @match        *://kqdk.ctjsoft.com/*
 // @grant        none
 // ==/UserScript==
+
 // 代理获取位置
 (function () {
     // 判断是否已经hook了地理定位方法
