@@ -7,6 +7,7 @@
 // @match        *://ctjsoft.mrcrm.com/*
 // @match        *://ctjsoft.mrcrm.com/*?*
 // @match        *://kqdk.ctjsoft.com/*
+// @match        *://*.ctjsoft.com/*
 // @grant        none
 // ==/UserScript==
 
