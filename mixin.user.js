@@ -1,46 +1,59 @@
 // ==UserScript==
 // @name         位置测试
 // @namespace    sdo.xyz
-// @version      0.0.1
+// @version      0.0.2
 // @description  try to take over the world!
 // @author       You
 // @match        *://ctjsoft.mrcrm.com/*
 // @match        *://ctjsoft.mrcrm.com/*?*
-// @require      https://unpkg.com/ajax-hook@2.0.3/dist/ajaxhook.min.js
+// @match        *://kqdk.ctjsoft.com/*
 // @grant        none
 // ==/UserScript==
-
-(function() {
-    'use strict';
-    console.log("脚本生效中...");
-    function replacePV(url,name,value) {
-        var oUrl = url;
-        var re=eval('/('+name+'=)([^&]*)/gi');
-        var nUrl = oUrl.replace(re,name+'='+value);
-        return nUrl;
+// 代理获取位置
+(function () {
+    // 判断是否已经hook了地理定位方法
+    if (!window.is_geo_hooked) {
+        // 保存原始方法
+        navigator.geolocation.oriGetCurrentPosition = navigator.geolocation.getCurrentPosition;
+        navigator.geolocation.oriWatchPosition = navigator.geolocation.watchPosition;
+        window.is_geo_hooked = true;
     }
-    ah.proxy({
-        //请求发起前进入
-        onRequest: (config, handler) => {
-            var url = config.url;
-            if (url.indexOf('location.action') >= 0) {
-                var p = config.body;
-                p = replacePV(p,'longitude','113.68627321602'+parseInt(Math.random()*1000));
-                p = replacePV(p,'latitude','34.78440976085'+parseInt(Math.random()*1000));
-                p = replacePV(p,'accuracy',((Math.random()*50+50)+'').substring(0,4));
-                config.body = p;
+    // 修改getCurrentPosition方法
+    navigator.geolocation.getCurrentPosition = function (successCallback, errorCallback, options) {
+        // 调用原始方法并修改返回位置
+        navigator.geolocation.oriGetCurrentPosition(function (position) {
+            modifyPosition(position, successCallback);
+        }, errorCallback, options);
+    };
+    // 修改watchPosition方法
+    navigator.geolocation.watchPosition = function (successCallback, errorCallback, options) {
+        // 调用原始方法并修改返回位置
+        navigator.geolocation.oriWatchPosition(function (position) {
+            modifyPosition(position, successCallback);
+        }, errorCallback, options);
+    };
+    // 修改位置信息
+    function modifyPosition(position, callback) {
+        const baseLatitude = 34.784473;
+        const baseLongitude = 113.686359;
+        // 计算偏移量
+        const offset = 1e-9; // 偏移量调整
+        const randomOffset1 = (Math.random() * 2 - 1) * offset;
+        const randomOffset2 = (Math.random() * 2 - 1) * offset;
+        // 构造新的位置对象
+        const pos = {
+            timestamp: position.timestamp,
+            coords: {
+                accuracy: position.coords.accuracy,
+                altitude: position.coords.altitude,
+                altitudeAccuracy: position.coords.altitudeAccuracy,
+                heading: position.coords.heading,
+                latitude: baseLatitude + randomOffset1,
+                longitude: baseLongitude + randomOffset2,
+                speed: position.coords.speed
             }
-            handler.next(config);
-        },
-        //请求成功后进入
-        onResponse: (response, handler) => {
-            var url = response.config.url;
-            if (url.indexOf('location.action') >= 0) {
-                var loc = JSON.parse(response.response);
-                loc.name = '郑州市金水区经三路 在财富广场附近';
-                response.response = JSON.stringify(loc);
-            }
-            handler.next(response);
-        }
-    });
+        };
+        // 调用回调函数
+        callback(pos);
+    }
 })();
