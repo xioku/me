@@ -1,13 +1,15 @@
 // ==UserScript==
 // @name         位置测试
 // @namespace    sdo.xyz
-// @version      0.0.2
+// @version      0.0.3
 // @description  try to take over the world!
 // @author       You
-// @match        *://ctjsoft.mrcrm.com/*
-// @match        *://ctjsoft.mrcrm.com/*?*
 // @match        *://kqdk.ctjsoft.com/*
 // @match        *://*.ctjsoft.com/*
+// @match        *://*kqdk.ctjsoft.com*
+// @match        *://*.ctjsoft.com*
+// @match        *://ctjsoft.mrcrm.com/*
+// @match        *://ctjsoft.mrcrm.com*?*
 // @grant        none
 // ==/UserScript==
 
