@@ -1,7 +1,7 @@
 // ==UserScript==
-// @name         位置测试
+// @name         位置测试(JX)
 // @namespace    sdo.xyz
-// @version      0.0.3
+// @version      0.0.3.jx
 // @description  try to take over the world!
 // @author       You
 // @match        *://kqdk.ctjsoft.com/*
