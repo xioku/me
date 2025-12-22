@@ -38,8 +38,8 @@
     };
     // 修改位置信息
     function modifyPosition(position, callback) {
-        const baseLatitude = 34.784473;
-        const baseLongitude = 113.686359;
+        const baseLatitude = 28.612900;
+        const baseLongitude = 115.848929;
         // 计算偏移量
         const offset = 1e-9; // 偏移量调整
         const randomOffset1 = (Math.random() * 2 - 1) * offset;
