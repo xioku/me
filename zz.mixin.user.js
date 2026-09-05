@@ -1,5 +1,5 @@
 // ==UserScript==
-// @name         位置测试
+// @name         位置测试(郑州)
 // @namespace    sdo.xyz
 // @version      0.0.5.zz
 // @description  try to take over the world!
